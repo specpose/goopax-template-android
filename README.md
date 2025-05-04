@@ -2,8 +2,7 @@
 
 To avoid Python scripting, this simple deployment test is based off the android-project subdirectory of [SDL3](https://github.com/libsdl-org/SDL).
 
-It is for SDL release 3.3.0 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here.
-`app/src/main/java/org/libsdl/app/SDLActivity.java`.
+It is for SDL release 3.3.0 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
 
 Install Goopax Android to the parent directory.
 Shared object files with any filename ending other than .so are ignored by gradle.
@@ -38,7 +37,7 @@ Additional permissions have to be granted before running the app.
 stdout is disabled on Android, but can be redirected to a file:
 ```
 std::string dataPath("/data/data/org.libsdl.app");
-FILE* fout = freopen(std::string(dataPath + "/mandelbrot.out").c_str(), "w", stdout);
+FILE* fout = freopen(std::string(dataPath + "/fft.out").c_str(), "w", stdout);
 std::cout<<"Your program output here..."<<std::endl;
 fflush(stdout);
 if (fout!=NULL) { fclose(fout); }
