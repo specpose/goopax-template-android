@@ -24,7 +24,7 @@ cp ../goopax-examples/build/ext/sdl3/lib/libSDL3.so app/libs/arm64-v8a/libSDL3.s
 `wrap.sh` needs API-level 27 on the target mobile. Edit `app/src/main/resources/lib/arm64-v8a/wrap.sh`.
 For example:
 ```
-exec env GOOPAX_VERB=3 $cmd "$@"
+exec env GOOPAX_VERB=1 $cmd "$@"
 ```
 
 `libfft.so`: Uncomment Android camera permissions in `app/src/main/AndroidManifest.xml`
@@ -32,15 +32,15 @@ exec env GOOPAX_VERB=3 $cmd "$@"
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-feature android:name="android.hardware.camera" android:required="true" />
 ```
-Additional permissions have to be granted before running the app.
+The camera permission has to be granted *before* running the app.
 
-stdout is disabled on Android, but can be redirected to a file:
+stdout is disabled on Android, but can be redirected to `Android/data/org.libsdl.app/files/fft.out`:
 ```
-std::string dataPath("/data/data/org.libsdl.app");
+std::string dataPath(SDL_GetAndroidExternalStoragePath())
 FILE* fout = freopen(std::string(dataPath + "/fft.out").c_str(), "w", stdout);
 std::cout<<"Your program output here..."<<std::endl;
 fflush(stdout);
 if (fout!=NULL) { fclose(fout); }
 fout=NULL;
 ```
-The phone has to be rooted for that particular file to be accessible from adb shell.
+This folder may be located under `/sdcard` or `/storage/sdcard0` depending on your phone.
