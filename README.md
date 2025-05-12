@@ -2,7 +2,7 @@
 
 To avoid Python scripting, this simple deployment test is based off the android-project subdirectory of [SDL3](https://github.com/libsdl-org/SDL).
 
-It is for SDL release 3.3.0 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
+It is for SDL release 3.2.8 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
 
 Install Goopax Android to the parent directory.
 Shared object files with any filename ending other than .so are ignored by gradle.
@@ -47,7 +47,7 @@ This folder may be located under `/sdcard` or `/storage/sdcard0` depending on yo
 
 At this point you should be able to `Build->Make Project` in Android Studio, run, debug and set breakpoints in the `../goopax-examples/src` files.
 
-Follow instructions on `https://wiki.libsdl.org/SDL3/README-android` to customise the App. Make sure to check entries:
+Follow instructions on [libsdl-org](https://github.com/libsdl-org/SDL/blob/release-3.2.8/docs/README-android.md) to customise the App. Make sure to check entries:
 ```
 namespace "org.libsdl.app"
 <activity android:name="SDLActivity"
