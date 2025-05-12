@@ -44,3 +44,13 @@ if (fout!=NULL) { fclose(fout); }
 fout=NULL;
 ```
 This folder may be located under `/sdcard` or `/storage/sdcard0` depending on your phone.
+
+At this point you should be able to `Build->Make Project` in Android Studio, run, debug and set breakpoints in the `../goopax-examples/src` files.
+
+Follow instructions on `https://wiki.libsdl.org/SDL3/README-android` to customise the App. Make sure to check entries:
+```
+namespace "org.libsdl.app"
+<activity android:name="SDLActivity"
+<string name="app_name">Game</string>
+```
+In the files `app/build.gradle`, `app/src/main/AndroidManifest.xml` and `app/src/main/res/values/strings.xml`.
