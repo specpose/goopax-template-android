@@ -1,8 +1,21 @@
 # goopax-examples SDL apk packaging test
 
+## Info
+
 To avoid Python scripting, this simple deployment test is based off the android-project subdirectory of [SDL3](https://github.com/libsdl-org/SDL).
 
 It is for SDL release 3.2.8 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
+
+## About the Workaround
+
+Generating add_sdl_main for Android is broken when using the cmake built-in Android support. Instead, the android-workaround branch is using the official Google Android cmake support CMAKE_TOOLCHAIN_FILE. [Official Google cmake build Instructions](https://developer.android.com/studio/projects/configure-cmake?hl=en)
+
+Add ANDROID_PLATFORM and CMAKE_TOOLCHAIN_FILE, remove CMAKE_SYSTEM_VERSION and CMAKE_ANDROID_STL_TYPE, replace CMAKE_ANDROID_ARCH_ABI with ANDROID_ABI and CMAKE_ANDROID_NDK with ANDROID_NDK.
+
+Add build_sdl3 to build_external_libraries target and add the sdl3 entry to CMAKE_FIND_ROOT_PATH to revert to a working version.
+
+## Instructions
+Check out the android-workaround branch from [goopax-examples](https://github.com/specpose/goopax-examples) to the parent directory. The workaround is already applied.
 
 Install Goopax Android to the parent directory.
 Shared object files with any filename ending other than .so are ignored by gradle.
@@ -10,8 +23,7 @@ Shared object files with any filename ending other than .so are ignored by gradl
 cp ../goopax-5.7.0-Android-aarch64/lib/libgoopax.so app/libs/arm64-v8a/libgoopax.so
 ```
 
-Check out the android-shared branch of [goopax-examples](https://github.com/specpose/goopax-examples) to the parent directory.
-Follow build instructions.
+Follow build instructions in android-workaround branch.
 Rename the executable shared object to `libmain.so`.
 ```console
 cp ../goopax-examples/build/libfft.so app/libs/arm64-v8a/libmain.so
