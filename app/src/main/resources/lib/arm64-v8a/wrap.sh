@@ -9,4 +9,4 @@ elif [ "$os_version" -eq "28" ]; then
 else
   cmd="$cmd -XjdwpProvider:adbconnection -XjdwpOptions:suspend=n,server=y"
 fi
-exec $cmd "$@"
+exec env GOOPAX_ALLOW_DEPRECATED_DEVICES=1 $cmd "$@"
