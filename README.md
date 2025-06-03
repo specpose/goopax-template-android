@@ -36,7 +36,7 @@ cp ../goopax-examples/build/ext/sdl3/lib/libSDL3.so app/libs/arm64-v8a/libSDL3.s
 `wrap.sh` needs API-level 27 on the target mobile. Edit `app/src/main/resources/lib/arm64-v8a/wrap.sh`.
 For example:
 ```
-exec env GOOPAX_VERB=1 $cmd "$@"
+exec env GOOPAX_ALLOW_DEPRECATED_DEVICES=1 GOOPAX_VERB=1 $cmd "$@"
 ```
 
 `libfft.so`: Uncomment Android camera permissions in `app/src/main/AndroidManifest.xml`
