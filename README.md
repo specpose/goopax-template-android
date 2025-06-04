@@ -66,3 +66,5 @@ namespace "org.libsdl.app"
 <string name="app_name">Game</string>
 ```
 In the files `app/build.gradle`, `app/src/main/AndroidManifest.xml` and `app/src/main/res/values/strings.xml`.
+
+If there are graphics glitches it may be helpful to `Disable HW overlays` in `Settings->System->Developer options` on the target phone.
