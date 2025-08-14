@@ -4,7 +4,7 @@
 
 To avoid Python scripting, this simple deployment test is based off the android-project subdirectory of [SDL3](https://github.com/libsdl-org/SDL).
 
-It is for SDL release 3.2.8 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
+It is for SDL release 3.2.18 and all of the files have to be updated from that repository with every new release version. The corresponding libSDL3.so version number can be found here: `app/src/main/java/org/libsdl/app/SDLActivity.java`.
 
 ## About the Workaround
 
@@ -48,7 +48,7 @@ The camera permission has to be granted *before* running the app.
 
 stdout is disabled on Android, but can be redirected to `Android/data/org.libsdl.app/files/fft.out`:
 ```
-std::string dataPath(SDL_GetAndroidExternalStoragePath())
+std::string dataPath(SDL_GetAndroidExternalStoragePath());
 FILE* fout = freopen(std::string(dataPath + "/fft.out").c_str(), "w", stdout);
 std::cout<<"Your program output here..."<<std::endl;
 fflush(stdout);
