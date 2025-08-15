@@ -8,7 +8,7 @@ It is for SDL release 3.2.18 and all of the files have to be updated from that r
 
 ## About the Workaround
 
-Some features of the Android ndk may not work as expected, when using the cmake builtin Android target. For example OpenCV will not find the camera. And PIC may be required for compiling SDL. Instead, my [android-workaround branch](https://github.com/specpose/goopax-examples/tree/android-workaround) is using the official Google Android cmake support CMAKE_TOOLCHAIN_FILE. [Official Google cmake build Instructions](https://developer.android.com/studio/projects/configure-cmake?hl=en)
+Some features of the Android ndk may not work as expected, when using the cmake builtin Android target. For example OpenCV will not find the camera. And Position Independent Code may have to be explicitly specified for compiling SDL. Instead, my [android_workaround branch](https://github.com/specpose/goopax-examples/tree/android_workaround) is using the official Google Android cmake support CMAKE_TOOLCHAIN_FILE. [Official Google cmake build Instructions](https://developer.android.com/studio/projects/configure-cmake?hl=en)
 
 This is not strictly needed, but may be useful when encountering compile errors in dependencies or unsupported platform features.
 
@@ -57,7 +57,7 @@ This folder may be located under `/sdcard` or `/storage/sdcard0` depending on yo
 
 At this point you should be able to `Build->Make Project` in Android Studio, run, debug and set breakpoints in the `../goopax-examples/src` files.
 
-Follow instructions on [libsdl-org](https://github.com/libsdl-org/SDL/blob/release-3.2.8/docs/README-android.md) to customise the App. Make sure to check entries:
+Follow instructions on [libsdl-org](https://github.com/libsdl-org/SDL/blob/release-3.2.18/docs/README-android.md) to customise the App. Make sure to check entries:
 ```
 namespace "org.libsdl.app"
 <activity android:name="SDLActivity"
