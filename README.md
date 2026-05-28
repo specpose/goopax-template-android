@@ -55,7 +55,7 @@ fout=NULL;
 ```
 This folder may be located under `/sdcard` or `/storage/sdcard0` depending on your phone.
 
-At this point you should be able to `Build->Make Project` in Android Studio, run, debug and set breakpoints in the `../goopax-examples/src` files.
+At this point you should be able to `Build->Assemble Project` in Android Studio, run, debug and set breakpoints in the `../goopax-examples/src` files.
 
 Follow instructions on [libsdl-org](https://github.com/libsdl-org/SDL/blob/release-3.2.18/docs/README-android.md) to customise the App. Make sure to check entries:
 ```
